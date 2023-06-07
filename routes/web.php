@@ -3,8 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\auth\AuthLoginController;
 use App\Http\Controllers\auth\AuthLogoutController;
-use App\Http\Controllers\frontend\AboutController;
-use App\Http\Controllers\frontend\HeroController;
+use App\Http\Controllers\backend\ExperienceController;
 use App\Http\Controllers\frontend\LandingpageController;
 
 /*
@@ -24,11 +23,13 @@ use App\Http\Controllers\frontend\LandingpageController;
 
 Route::get('/', [LandingpageController::class, 'index'])->name('landing');
 
-Route::get('/my-login', [AuthLoginController::class, 'index'])->name('login')->middleware('guest');
+Route::get('/sEswetosWAfacUFrlFRL', [AuthLoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login-process', [AuthLoginController::class, 'authenticate']);
 Route::post('/logout-process ', [AuthLogoutController::class, 'logout']);
 
 // Dashboard
-Route::get('/my-dashboard', function () {
+Route::get('/dashboard', function () {
     return view('backend.index');
 })->middleware('auth');
+
+Route::resource('/dashboard/experience', ExperienceController::class)->middleware('auth');
