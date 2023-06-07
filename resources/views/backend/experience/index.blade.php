@@ -27,8 +27,12 @@
                         <td>{{ $experience->skill }}</td>
                         
                         <td>
-                            <a href="/dashboard/experience/edit/" class="btn btn-sm btn-success"><i class="la la-pencil-square-o"></i></a>
-                            <a href="/dashboard/experience/hapus/" class="btn btn-sm btn-danger"><i class="la la-trash"></i></a>
+                            <a href="/dashboard/experience/{{ $experience->id }}/edit" class="btn btn-sm btn-success"><i class="la la-pencil-square-o"></i></a>
+                            <form action="/dashboard/experience/{{ $experience->id }}" method="POST" class="d-inline">
+                                @method('delete')
+                                @csrf
+                                <button class="btn btn-sm btn-danger border-0"><i class="la la-trash"></i></button>
+                            </form>
                         </td>
                     </tr>
                     @endforeach

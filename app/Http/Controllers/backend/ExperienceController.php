@@ -72,6 +72,7 @@ class ExperienceController extends Controller
     public function edit(Experience $experience)
     {
         //
+        return view('backend.experience.edit', ['experiences' => $experience]);
     }
 
     /**
@@ -84,6 +85,16 @@ class ExperienceController extends Controller
     public function update(Request $request, Experience $experience)
     {
         //
+        $validateData = $request->validate([
+            'title' => 'required',
+            'position' => 'required',
+            'start' => 'required',
+            'end' => 'required',
+            'skill' => 'required',
+            'desc' => 'required',
+        ]);
+        Experience::where('id', $experience->id)->update($validateData);
+        return redirect('/dashboard/experience');
     }
 
     /**
@@ -95,5 +106,7 @@ class ExperienceController extends Controller
     public function destroy(Experience $experience)
     {
         //
+        Experience::destroy($experience->id);
+        return redirect('/dashboard/experience');
     }
 }

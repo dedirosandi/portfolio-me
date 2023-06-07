@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\auth\AuthLoginController;
 use App\Http\Controllers\auth\AuthLogoutController;
 use App\Http\Controllers\backend\ExperienceController;
+use App\Http\Controllers\backend\ServiceController;
 use App\Http\Controllers\frontend\LandingpageController;
 
 /*
@@ -33,3 +34,4 @@ Route::get('/dashboard', function () {
 })->middleware('auth');
 
 Route::resource('/dashboard/experience', ExperienceController::class)->middleware('auth');
+Route::resource('/dashboard/service', ServiceController::class)->middleware('auth');
