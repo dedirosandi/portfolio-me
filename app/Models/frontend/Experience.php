@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Experience extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'title',
+        'position',
+        'start',
+        'end',
+        'skill',
+        'desc',
+        // kolom-kolom lain yang sudah ada
+    ];
 }

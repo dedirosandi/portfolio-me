@@ -28,7 +28,7 @@
                                 <h4 class="mb-2 text-primary">{{ $experiences['position'] }}</h4>
                                 <span>{{ $experiences['skill'] }}</span>
                             </div>
-                            <p class="mb-0">{{ $experiences['desc'] }}
+                            <p class="mb-0">{!! $experiences['desc'] !!}
                             </p>
                             <!--text-->
                         </div>

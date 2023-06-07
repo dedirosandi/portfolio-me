@@ -39,6 +39,17 @@ class ExperienceController extends Controller
     public function store(Request $request)
     {
         //
+        $validateData = $request->validate([
+            'title' => 'required',
+            'position' => 'required',
+            'start' => 'required',
+            'end' => 'required',
+            'skill' => 'required',
+            'desc' => 'required',
+        ]);
+
+        Experience::create($validateData);
+        return redirect('/dashboard/experience');
     }
 
     /**
